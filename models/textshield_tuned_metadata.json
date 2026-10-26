@@ -1,0 +1,55 @@
+{
+  "seed": 42,
+  "selection_metric": "macro F1",
+  "selection_strategy": "4-fold StratifiedGroupKFold on train scenarios; compare best CV candidate with baseline on validation; retain baseline unless candidate improves validation macro F1.",
+  "cv_folds": 4,
+  "grid_candidate_count": 24,
+  "train_rows_for_cv": 600,
+  "validation_rows_for_selection": 300,
+  "train_validation_rows_for_final_fit": 900,
+  "test_rows_used_before_final_evaluation": 0,
+  "best_cross_validation_macro_f1": 0.7284949418215216,
+  "best_grid_parameters": {
+    "classifier__C": 2.0,
+    "classifier__class_weight": null,
+    "tfidf__min_df": 1,
+    "tfidf__ngram_range": [
+      1,
+      2
+    ]
+  },
+  "best_grid_validation_metrics": {
+    "accuracy": 0.67,
+    "macro_f1": 0.6601791782514674
+  },
+  "baseline_validation_metrics": {
+    "accuracy": 0.67,
+    "macro_f1": 0.6601791782514674
+  },
+  "selected_candidate_was_tuned": false,
+  "selection_reason": "Baseline settings were retained because the tuned candidate did not improve validation macro F1.",
+  "selected_parameters": {
+    "tfidf__ngram_range": [
+      1,
+      2
+    ],
+    "tfidf__min_df": 1,
+    "classifier__C": 1.0,
+    "classifier__class_weight": null
+  },
+  "final_fit_splits": [
+    "train",
+    "validation"
+  ],
+  "synthetic_only": true,
+  "final_model_path": "models\\textshield_tuned.joblib",
+  "tuned_test_metrics": {
+    "accuracy": 1.0,
+    "precision_suspicious": 1.0,
+    "recall_suspicious": 1.0,
+    "f1_suspicious": 1.0,
+    "macro_f1": 1.0,
+    "roc_auc_suspicious_positive": 1.0,
+    "average_precision_suspicious_positive": 1.0
+  }
+}

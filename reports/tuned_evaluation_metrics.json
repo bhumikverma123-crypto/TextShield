@@ -1,0 +1,95 @@
+{
+  "evaluation_scope": "Held-out synthetic test split only; no fitting or model selection performed.",
+  "synthetic_only": true,
+  "model_path": "models\\textshield_tuned.joblib",
+  "test_rows": 300,
+  "test_class_counts": {
+    "likely_legitimate": 150,
+    "suspicious": 150
+  },
+  "test_scenario_families": [
+    "account_lock_warning",
+    "community_event",
+    "routine_service_notice",
+    "unexpected_refund"
+  ],
+  "train_test_scenario_overlap": [],
+  "validation_test_scenario_overlap": [],
+  "accuracy": 1.0,
+  "precision_suspicious": 1.0,
+  "recall_suspicious": 1.0,
+  "f1_suspicious": 1.0,
+  "macro_f1": 1.0,
+  "roc_auc_suspicious_positive": 1.0,
+  "average_precision_suspicious_positive": 1.0,
+  "confusion_matrix_label_order": [
+    "likely_legitimate",
+    "suspicious"
+  ],
+  "confusion_matrix": [
+    [
+      150,
+      0
+    ],
+    [
+      0,
+      150
+    ]
+  ],
+  "classification_report": {
+    "likely_legitimate": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 150.0
+    },
+    "suspicious": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 150.0
+    },
+    "accuracy": 1.0,
+    "macro avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 300.0
+    },
+    "weighted avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 300.0
+    }
+  },
+  "misclassified_rows": 0,
+  "false_positive_count": 0,
+  "false_negative_count": 0,
+  "misclassified_by_scenario": [],
+  "correct_inference_examples": [
+    {
+      "message_id": "SYN-000457",
+      "scenario": "account_lock_warning",
+      "message_text": "Hello Kavi \u2014 The Amber Field Club protection team needs a quick sign-in check. Provide the requested details before the review window ends. Thanks, Kavi.",
+      "true_label": "suspicious",
+      "predicted_label": "suspicious"
+    },
+    {
+      "message_id": "SYN-001094",
+      "scenario": "community_event",
+      "message_text": "The library posted its upcoming event calendar at https://notice.cedar-library.example.invalid/782. It is fine to just browse the dates.",
+      "true_label": "likely_legitimate",
+      "predicted_label": "likely_legitimate"
+    }
+  ],
+  "error_inference_examples": [],
+  "predictions_path": "reports\\tuned_evaluation_predictions.csv",
+  "error_analysis_path": "reports\\tuned_error_analysis.csv",
+  "figures": [
+    "reports\\figures\\tuned_confusion_matrix.png",
+    "reports\\figures\\tuned_roc_curve.png",
+    "reports\\figures\\tuned_precision_recall_curve.png"
+  ],
+  "caution": "Results describe this synthetic scenario-held-out dataset only and do not establish real-world detection performance."
+}

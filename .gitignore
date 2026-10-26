@@ -1,0 +1,50 @@
+# Python environments and generated interpreter/test caches
+.venv/
+.venv*/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local secrets and environment-specific configuration
+.env
+.env.*
+!.env.example
+secrets.toml
+.streamlit/secrets.toml
+secrets/
+credentials/
+credentials.json
+*_credentials.json
+*.token
+*.secret
+*.secrets
+config.local.*
+settings.local.*
+
+# Private keys, certificates, local databases, and logs
+*.pem
+*.key
+*.p12
+*.pfx
+*.ppk
+*.crt
+*.cer
+*.der
+id_rsa*
+id_ed25519*
+id_ecdsa*
+*.sqlite
+*.sqlite3
+*.db
+*.log
+
+# Editor and operating-system files
+# Spyder project files are user-specific; keep them out of source control.
+.spyproject/
+.idea/
+.vscode/
+Thumbs.db
+Desktop.ini

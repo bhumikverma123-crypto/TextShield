@@ -1,0 +1,43 @@
+{
+  "model_name": "TF-IDF + Logistic Regression baseline",
+  "seed": 42,
+  "training_rows": 600,
+  "training_class_counts": {
+    "likely_legitimate": 300,
+    "suspicious": 300
+  },
+  "training_scenario_families": [
+    "account_review",
+    "appointment_reminder",
+    "delivery_fee",
+    "parcel_tracking",
+    "prize_claim",
+    "school_update",
+    "support_impersonation",
+    "team_coordination"
+  ],
+  "split_strategy": "Preassigned scenario-family groups; only rows with split=train are passed to fit.",
+  "held_out_rows_used_for_fit": 0,
+  "vectorizer": {
+    "class": "TfidfVectorizer",
+    "ngram_range": [
+      1,
+      2
+    ],
+    "min_df": 1,
+    "max_df": 1.0,
+    "sublinear_tf": true,
+    "lowercase": true,
+    "token_pattern": "scikit-learn default; raw punctuation/URL text is preserved before vectorization"
+  },
+  "classifier": {
+    "class": "LogisticRegression",
+    "solver": "liblinear",
+    "max_iter": 1000,
+    "class_weight": null,
+    "random_state": 42
+  },
+  "model_path": "models\\textshield_baseline.joblib",
+  "synthetic_only": true,
+  "evaluation_metrics": "Pending Phase 5; no validation/test metrics were computed during training."
+}

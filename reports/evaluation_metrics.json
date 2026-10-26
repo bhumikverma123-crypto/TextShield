@@ -1,0 +1,129 @@
+{
+  "evaluation_scope": "Held-out synthetic test split only; no fitting or model selection performed.",
+  "synthetic_only": true,
+  "model_path": "models\\textshield_baseline.joblib",
+  "test_rows": 300,
+  "test_class_counts": {
+    "likely_legitimate": 150,
+    "suspicious": 150
+  },
+  "test_scenario_families": [
+    "account_lock_warning",
+    "community_event",
+    "routine_service_notice",
+    "unexpected_refund"
+  ],
+  "train_test_scenario_overlap": [],
+  "validation_test_scenario_overlap": [],
+  "accuracy": 0.9,
+  "precision_suspicious": 0.8409090909090909,
+  "recall_suspicious": 0.9866666666666667,
+  "f1_suspicious": 0.9079754601226994,
+  "macro_f1": 0.8992432045139045,
+  "roc_auc_suspicious_positive": 0.9875999999999999,
+  "average_precision_suspicious_positive": 0.9885803280334639,
+  "confusion_matrix_label_order": [
+    "likely_legitimate",
+    "suspicious"
+  ],
+  "confusion_matrix": [
+    [
+      122,
+      28
+    ],
+    [
+      2,
+      148
+    ]
+  ],
+  "classification_report": {
+    "likely_legitimate": {
+      "precision": 0.9838709677419355,
+      "recall": 0.8133333333333334,
+      "f1-score": 0.8905109489051095,
+      "support": 150.0
+    },
+    "suspicious": {
+      "precision": 0.8409090909090909,
+      "recall": 0.9866666666666667,
+      "f1-score": 0.9079754601226994,
+      "support": 150.0
+    },
+    "accuracy": 0.9,
+    "macro avg": {
+      "precision": 0.9123900293255132,
+      "recall": 0.9,
+      "f1-score": 0.8992432045139045,
+      "support": 300.0
+    },
+    "weighted avg": {
+      "precision": 0.9123900293255133,
+      "recall": 0.9,
+      "f1-score": 0.8992432045139045,
+      "support": 300.0
+    }
+  },
+  "misclassified_rows": 30,
+  "false_positive_count": 28,
+  "false_negative_count": 2,
+  "misclassified_by_scenario": [
+    {
+      "scenario": "community_event",
+      "true_label": "likely_legitimate",
+      "predicted_label": "suspicious",
+      "count": 6
+    },
+    {
+      "scenario": "routine_service_notice",
+      "true_label": "likely_legitimate",
+      "predicted_label": "suspicious",
+      "count": 22
+    },
+    {
+      "scenario": "unexpected_refund",
+      "true_label": "suspicious",
+      "predicted_label": "likely_legitimate",
+      "count": 2
+    }
+  ],
+  "correct_inference_examples": [
+    {
+      "message_id": "SYN-000457",
+      "scenario": "account_lock_warning",
+      "message_text": "Hello Kavi \u2014 The Amber Field Club protection team needs a quick sign-in check. Provide the requested details before the review window ends. Thanks, Kavi.",
+      "true_label": "suspicious",
+      "predicted_label": "suspicious"
+    },
+    {
+      "message_id": "SYN-001094",
+      "scenario": "community_event",
+      "message_text": "The library posted its upcoming event calendar at https://notice.cedar-library.example.invalid/782. It is fine to just browse the dates.",
+      "true_label": "likely_legitimate",
+      "predicted_label": "likely_legitimate"
+    }
+  ],
+  "error_inference_examples": [
+    {
+      "message_id": "SYN-001127",
+      "scenario": "routine_service_notice",
+      "message_text": "Juniper Workshop service note: planned maintenance is scheduled for Thursday. Details are posted at https://events.willow-desk.example.invalid/262. \u2014 Juniper Workshop",
+      "true_label": "likely_legitimate",
+      "predicted_label": "suspicious"
+    },
+    {
+      "message_id": "SYN-000560",
+      "scenario": "unexpected_refund",
+      "message_text": "Hello Mira \u2014 The refund desk cannot complete reference TS-4629-75 until you verify the payment card information by message. Thanks, Mira.",
+      "true_label": "suspicious",
+      "predicted_label": "likely_legitimate"
+    }
+  ],
+  "predictions_path": "reports\\evaluation_predictions.csv",
+  "error_analysis_path": "reports\\error_analysis.csv",
+  "figures": [
+    "reports/figures/confusion_matrix.png",
+    "reports/figures/roc_curve.png",
+    "reports/figures/precision_recall_curve.png"
+  ],
+  "caution": "Results describe this synthetic scenario-held-out dataset only and do not establish real-world detection performance."
+}
